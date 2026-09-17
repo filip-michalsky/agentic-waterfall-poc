@@ -1,0 +1,16 @@
+{
+  "name": "agentic-gateway-orchestrator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vault": "node --env-file=../../.env --import tsx/esm src/cli.ts vault",
+    "cascade": "node --env-file=../../.env --import tsx/esm src/cli.ts run",
+    "report": "node --env-file=../../.env --import tsx/esm src/cli.ts report",
+    "smoke:filler": "node --env-file=../../.env --import tsx/esm src/browser/smoke-filler.ts",
+    "test": "node --import tsx/esm --test src/**/*.test.ts",
+    "bt:reactor": "node --env-file=../../.env -e \"const k=process.env.BT_TEST_MANAGEMENT_KEY; if(!k){console.error('BT_TEST_MANAGEMENT_KEY missing');process.exit(2)}; require('child_process').execFileSync('npx',['-y','@basis-theory-labs/cli','reactors','create','-x',k,'-n','awf-reveal','-r','bt/reactor.js','--image','node22'],{stdio:'inherit'})\""
+  },
+  "dependencies": {
+    "@browserbasehq/stagehand": "^4.0.2"
+  }
+}

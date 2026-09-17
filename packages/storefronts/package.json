@@ -1,0 +1,16 @@
+{
+  "name": "agentic-gateway-storefronts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=../../.env --import tsx/esm --watch src/server.ts",
+    "start": "node --env-file=../../.env --import tsx/esm src/server.ts"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "stripe": "^22.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "agentic-gateway-live-demo",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@browserbasehq/stagehand": "4.0.2",
+    "@vercel/blob": "2.6.1",
+    "@vercel/functions": "^3.9.5"
+  }
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
+  <title>Agentic Gateway classroom · Stripe test checkout</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="/checkout.css">
+  <script src="https://js.stripe.com/v3/"></script><script src="/checkout.js" defer></script>
+</head>
+<body><main>
+  <header><strong>Agentic Gateway <span>CLASSROOM</span></strong><span class="test">TEST CARDS · NO REAL MONEY</span></header>
+  <div class="layout"><section class="order"><p class="eyebrow">ONE DEMO PURCHASE</p><h1>The browser<br>takes it from here.</h1><p>Checkout.com → Adyen → Stripe. The API steps handed off this $19.99 test purchase to the browser.</p><div class="product"><span>◈</span><div><strong>Demo digital pass</strong><small>Sandbox purchase · <span id="purchase"></span></small></div></div><div class="total"><span>Authorization amount</span><strong>$19.99</strong></div><p class="note">Stripe’s real hosted fields.<br>Test card 4242 · CVV obscured.<br>Authorized only; never captured.</p></section>
+  <section class="form"><p class="eyebrow">STRIPE · SANDBOX CHECKOUT</p><h2>Complete the test purchase</h2><form id="checkout-form"><label for="holder">Cardholder name</label><input id="holder" autocomplete="off" placeholder="Full name"><label>Card number</label><div class="field" id="card-number"></div><div class="row"><div><label>Expiry</label><div class="field" id="card-expiry"></div></div><div><label>CVV <small>hidden for viewers</small></label><div class="field" id="card-cvc"></div></div></div><label for="postal">ZIP / postal code</label><input id="postal" autocomplete="off" placeholder="10001"><button id="pay" type="submit" disabled>Authorize $19.99 in test mode</button><p id="status" role="status">Waiting for the demo runner to fill the checkout…</p></form></section></div>
+  <footer>LIVE BROWSER · GUIDED AUTOMATION · REAL STRIPE TEST ELEMENTS</footer>
+</main></body></html>

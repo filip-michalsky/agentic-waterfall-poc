@@ -1,0 +1,19 @@
+{
+  "name": "agentic-gateway",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "storefronts": "npm run dev -w packages/storefronts",
+    "vault": "npm run vault -w packages/orchestrator --",
+    "cascade": "npm run cascade -w packages/orchestrator --",
+    "smoke:filler": "npm run smoke:filler -w packages/orchestrator",
+    "typecheck": "tsc -b packages/orchestrator packages/storefronts"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "tsx": "^4.19.1",
+    "@types/node": "^22.10.0"
+  }
+}

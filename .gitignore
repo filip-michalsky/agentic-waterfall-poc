@@ -1,0 +1,20 @@
+node_modules/
+.env
+.env.*
+!.env.example
+packages/orchestrator/out/
+packages/storefronts/data/
+dist/
+*.log
+.DS_Store
+
+# Generated videos remain local, including exports outside out/.
+*.mp4
+*.mov
+*.webm
+*.mkv
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.vercel/
+demo/out/

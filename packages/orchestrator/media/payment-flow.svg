@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Gateway: API first, browser next, one result</title>
+  <desc id="desc">An educational animation. A token request goes from the orchestrator through Basis Theory Proxy to Checkout.com. A simulated eligible decline returns. The flow continues to an Adyen test API request with a provider-specific fixture. Its test-triggered eligible refusal hands off to a Stripe browser checkout and then a confirmed result. Test cards only.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#f0f5f4;text-anchor:middle}
+    .small{font-size:15px;fill:#9fb6c5}.label{font:13px monospace;letter-spacing:1px;fill:#74deeb}
+    .node{fill:#102430;stroke:#345263;stroke-width:2}.wire{fill:none;stroke:#345263;stroke-width:3}
+    .packet{fill:#74deeb}.amber{fill:#ffc58b}.green{fill:#c8ec9a}
+    @media(prefers-reduced-motion:reduce){.packet{display:none}}
+  </style>
+  <rect width="1200" height="760" rx="20" fill="#09131b"/>
+  <text x="90" y="61" font-size="33" font-weight="bold">Agentic Gateway</text>
+  <text x="1020" y="53" class="label amber">TEST CARDS · NO REAL MONEY</text>
+  <text x="600" y="132" font-size="42" font-weight="bold">One payment. API → browser.</text>
+  <text x="600" y="171" class="small">Follow the request, the handoff, and the result.</text>
+  <path class="wire" d="M330 294H465 M735 294H870"/>
+  <path class="wire" d="M1005 360V411H195V360"/>
+  <path class="wire" d="M195 411V486 M330 551H465 M735 551H870"/>
+  <circle r="7" class="packet">
+    <animateMotion dur="16s" repeatCount="indefinite" calcMode="linear" keyTimes="0;.25;.375;.5625;.75;1" keyPoints="0;.34;.68;.84;1;1" path="M330 294H465H735H870H1005V411H195V551H465H735H870"/>
+    <animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="1;1;1;1;0;0" keyTimes="0;.25;.375;.75;.8;1"/>
+  </circle>
+  <rect x="60" y="234" width="270" height="126" rx="15" class="node"/>
+  <rect x="465" y="234" width="270" height="126" rx="15" class="node"/>
+  <rect x="870" y="234" width="270" height="126" rx="15" class="node"/>
+  <text x="195" y="267" class="label">01 / API REQUEST</text>
+  <text x="195" y="304" font-size="25" font-weight="bold">Orchestrator</text>
+  <text x="195" y="337" class="small">Card token + purchase</text>
+  <text x="600" y="267" class="label">DETOKENIZE + FORWARD</text>
+  <text x="600" y="304" font-size="25" font-weight="bold">Basis Theory Proxy</text>
+  <text x="600" y="337" class="small">Provider receives card data</text>
+  <text x="1005" y="267" class="label">AUTHORIZATION API</text>
+  <text x="1005" y="304" font-size="25" font-weight="bold">Checkout.com</text>
+  <text x="1005" y="337" class="small">Simulated decline</text>
+  <rect x="362" y="390" width="477" height="42" rx="9" fill="#30271e"/>
+  <text x="600" y="417" class="label amber">issuer_unavailable → continue</text>
+  <rect x="60" y="486" width="270" height="135" rx="15" class="node"/>
+  <text x="195" y="521" class="label">02 / API ONLY</text>
+  <text x="195" y="558" font-size="25" font-weight="bold">Adyen test API</text>
+  <text x="195" y="593" class="small">Test-triggered refusal</text>
+  <rect x="465" y="486" width="270" height="135" rx="15" class="node"/>
+  <rect x="870" y="486" width="270" height="135" rx="15" class="node"/>
+  <text x="600" y="521" class="label">03 / BROWSER</text>
+  <text x="600" y="558" font-size="25" font-weight="bold">Stripe checkout</text>
+  <text x="600" y="593" class="small">Fill → submit</text>
+  <text x="1005" y="521" class="label green">04 / RESULT</text>
+  <text x="1005" y="558" font-size="25" font-weight="bold">Confirm + stop</text>
+  <text x="1005" y="593" class="small">Read the provider result</text>
+  <rect x="869" y="485" width="272" height="137" rx="16" fill="none" stroke="#c8ec9a" stroke-width="3" opacity="0">
+    <animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;.72;.75;.94;1"/>
+  </rect>
+  <text x="600" y="692" font-size="20">API first. Browser next. One outcome.</text>
+  <text x="600" y="728" class="small">Checkout.com / BT: simulated · Adyen: direct test fixture · Stripe: live sandbox</text>
+</svg>

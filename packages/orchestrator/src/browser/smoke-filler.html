@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>filler smoke</title>
+    <style>
+      body { font: 14px system-ui; padding: 24px; }
+      .field { margin: 12px 0; }
+      .field label { display: block; margin-bottom: 4px; color: #555; }
+      .field .frame-host { width: 320px; height: 40px; border: 1px solid #aaa; border-radius: 4px; }
+      iframe { width: 100%; height: 100%; border: 0; }
+      #echo { margin-top: 24px; padding: 12px; background: #f3f3f3; white-space: pre; }
+    </style>
+  </head>
+  <body>
+    <h1>Filler smoke page</h1>
+    <p>Three iframes, each with a single input. The parent listens for postMessage echoes.</p>
+    <div class="field"><label>Card number</label><div id="card-number" class="frame-host"></div></div>
+    <div class="field"><label>Expiry</label><div id="card-expiry" class="frame-host"></div></div>
+    <div class="field"><label>CVC</label><div id="card-cvc" class="frame-host"></div></div>
+    <button id="pay">Pay</button>
+    <div id="echo">(nothing yet)</div>
+    <script>
+      const frameSrc = (name) => `data:text/html,${encodeURIComponent(
+        `<input name="${name}" placeholder="${name}" style="width:95%;height:32px;font-size:16px;border:0;padding:0 8px" oninput="parent.postMessage({name:'${name}',value:this.value},'*')">`
+      )}`;
+      const state = {};
+      for (const id of ['card-number', 'card-expiry', 'card-cvc']) {
+        const f = document.createElement('iframe');
+        f.src = frameSrc(id);
+        document.getElementById(id).appendChild(f);
+      }
+      window.addEventListener('message', (e) => {
+        if (e.data && e.data.name) {
+          state[e.data.name] = e.data.value;
+          document.getElementById('echo').textContent = JSON.stringify(state);
+          window.__filled = state;
+        }
+      });
+      document.getElementById('pay').addEventListener('click', () => {
+        document.getElementById('echo').textContent = 'PAID ' + JSON.stringify(state);
+        window.__paid = true;
+      });
+    </script>
+  </body>
+</html>

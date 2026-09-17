@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09131b"><meta name="referrer" content="no-referrer">
+  <meta name="description" content="One live payment demo: animated API request, browser checkout, confirmed test authorization."><title>Live payment waterfall · Agentic Gateway</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="/live.css"><script type="module" src="/live.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#demo">Skip to the demo</a>
+  <header class="shell site-header"><a class="brand" href="/live">Agentic <span>GATEWAY</span></a><span class="sandbox-label">TEST CARDS · NO REAL MONEY</span></header>
+  <main class="shell">
+    <div class="intro"><div><h1>One payment. API → browser.</h1><p>The request, the handoff, and the live checkout—in one view.</p></div><button id="start-demo" class="primary" disabled>Connecting…</button></div>
+    <section id="demo" class="demo-panel" aria-label="Live payment demo">
+      <ol class="route-rail" aria-label="Payment progress"><li id="route-api"><span class="route-number">01</span><div><strong>Checkout.com API</strong><small id="route-api-status">Simulated decline</small></div></li><li id="route-adyen"><span class="route-number">02</span><div><strong>Adyen API</strong><small id="route-adyen-status">Live test API</small></div></li><li id="route-browser"><span class="route-number">03</span><div><strong>Stripe browser</strong><small id="route-browser-status">Live checkout</small></div></li><li id="route-result"><span class="route-number">04</span><div><strong>One result</strong><small id="route-result-status">Provider confirmed</small></div></li></ol>
+      <div class="stage-toolbar"><span id="stage-badge">READY</span><div><span id="run-reference">$19.99 USD</span><button id="fullscreen" aria-label="Expand the demo">Expand ↗</button></div></div>
+      <div id="demo-stage" class="demo-stage" data-scene="ready">
+        <div id="api-scene" class="api-scene" data-phase="ready">
+          <div class="api-title"><p id="api-kicker">THE FIRST ROUTE</p><h2 id="api-title">Try the checkout API.</h2><p id="api-subtitle">Then watch the browser take over.</p></div>
+          <div class="flow-nodes"><div id="from-node" class="flow-node"><span class="node-icon">{ }</span><strong id="from-name">Orchestrator</strong><small id="from-detail">One purchase · $19.99</small></div><div id="wire-one" class="wire"><span id="wire-one-label">request</span><i></i></div><div id="via-node" class="flow-node"><span class="node-icon">⇄</span><strong id="via-name">Basis Theory Proxy</strong><small id="via-detail">Token → card data</small></div><div id="wire-two" class="wire"><span id="wire-two-label">forward</span><i></i></div><div id="to-node" class="flow-node"><span class="node-icon">↗</span><strong id="to-name">Checkout.com</strong><small id="to-detail">Authorization API</small></div></div>
+          <div class="request-card"><span id="request-label">REQUEST</span><code id="request-code">POST /payments · $19.99 USD</code><span id="request-result">Waiting to start</span></div>
+        </div>
+        <iframe id="browser-frame" title="Actual live Stripe test checkout" sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer" tabindex="-1" hidden></iframe>
+        <div id="result-scene" class="result-scene" hidden><span id="result-icon">✓</span><h2 id="result-title">Authorized.</h2><p id="result-copy">$19.99 USD · confirmed by Stripe · not captured</p><button id="start-demo-again" class="primary">Run again ↻</button></div>
+      </div>
+      <div class="caption-bar" role="status" aria-live="polite"><span id="caption-dot"></span><p id="phase-caption">Start a run to follow the API request into a live browser checkout.</p><span id="elapsed"></span></div>
+    </section>
+    <p id="launch-status" class="launch-status" role="status" aria-live="polite"></p>
+    <p class="disclosure">Checkout.com / Basis Theory: simulated. Adyen: real test API, test-triggered refusal. Stripe: live sandbox browser + API. Provider-specific test cards · CVV obscured.</p>
+  </main>
+</body>
+</html>

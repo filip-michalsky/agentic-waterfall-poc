@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": "npm ci",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "redirects": [{ "source": "/", "destination": "/live", "permanent": false }],
+  "functions": { "api/live.js": { "maxDuration": 30 }, "api/start.js": { "maxDuration": 300, "includeFiles": "node_modules/@browserbasehq/stagehand/dist/assets/**" } },
+  "headers": [{ "source": "/live", "headers": [{ "key": "Referrer-Policy", "value": "no-referrer" }] }]
+}
